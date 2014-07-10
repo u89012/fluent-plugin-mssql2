@@ -1,5 +1,3 @@
-require 'sequel'
-require 'json'
 # require 'pp'
 # require 'logger'
 
@@ -17,6 +15,9 @@ class Mssql2Output < Fluent::BufferedOutput
 
   def configure(conf)
     super
+    require 'sequel'
+    require 'json'
+
     @format_proc = Proc.new{|tag, time, record| record.to_json}
   end
 
