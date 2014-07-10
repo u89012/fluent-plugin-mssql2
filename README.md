@@ -41,7 +41,7 @@ And then execute:
 
 ## Usage
 
-Add a matcher in your fluentd.conf file like so
+Add a matcher in your fluent.conf file like so
 
 ```
 <match insert.into.mssql2.*>
