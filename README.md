@@ -2,6 +2,8 @@
 
 A no frills fluentd buffered plugin to write to microsoft sql server. Uses tiny_tds and sequel for the actual weightlifting.
 
+Extracts and writes any matching JSON packet to a preconfigred SQL Server table (see usage below)
+
 ## Requirement
 
 You should install and setup following packages;
@@ -38,6 +40,8 @@ And then execute:
 
 
 ## Usage
+
+Add a matcher in your fluentd.conf file like so
 
 ```
 <match insert.into.mssql2.*>
