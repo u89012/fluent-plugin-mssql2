@@ -56,6 +56,21 @@ Add a matcher in your fluentd.conf file like so
 </match>
 ```
 
+Fire up your fluentd
+
+```
+fluentd -c ./fluent/fluent.conf -vv
+```
+
+Make sure the approriate tables are created in sql server and then test it like so
+
+```
+echo '{"msg":"here comes the sun"}' | fluent-cat insert.into.mssql2.test
+```
+
+If everything goes well, you should see your JSON data in your table as a row
+
+
 ## THANKS
 
 Hidemasa Togashi for his work on fluent-plugin-mssql [https://github.com/htgc/fluent-plugin-mssql] on which this is based
