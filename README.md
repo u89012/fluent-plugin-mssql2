@@ -16,7 +16,7 @@ You should install and setup following packages;
 Install Ruby and any prerequisites (assuming Debian distro)
 
 ```
-sudo apt-get install build-essential ruby2.0 ruby-dev unixODBC freetds-dev
+$ sudo apt-get install build-essential ruby2.0 ruby-dev unixODBC freetds-dev
 ```
 
 Install Fluentd gem. Follow the well written documentation [http://docs.fluentd.org/articles/install-by-gem]
@@ -25,7 +25,7 @@ Install Fluentd gem. Follow the well written documentation [http://docs.fluentd.
 Install fluent-plugin-mssql2 gem and its deps
 
 ```
-sudo gem install sequel tiny_tds fluent-plugin-mssql2
+$ sudo gem install sequel tiny_tds fluent-plugin-mssql2
 ```
 
 Alternatively, add this line to your application's Gemfile:
@@ -59,13 +59,13 @@ Add a matcher in your fluent.conf file like so
 Fire up your fluentd
 
 ```
-fluentd -c ./fluent/fluent.conf -vv
+$ fluentd -c ./fluent/fluent.conf -vv
 ```
 
 Make sure the approriate tables are created in sql server and then test it like so
 
 ```
-echo '{"msg":"here comes the sun"}' | fluent-cat insert.into.mssql2.test
+$ echo '{"msg":"here comes the sun"}' | fluent-cat insert.into.mssql2.test
 ```
 
 If everything goes well, you should see your JSON data in your table as a row
