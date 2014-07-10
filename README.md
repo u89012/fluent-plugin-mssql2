@@ -71,12 +71,12 @@ $ echo '{"msg":"here comes the sun"}' | fluent-cat insert.into.mssql2.test
 If everything goes well, you should see your JSON data in your table as a row
 
 
-## THANKS
+## Thanks
 
 Hidemasa Togashi for his work on fluent-plugin-mssql [https://github.com/htgc/fluent-plugin-mssql] on which this is based
 
 
-## LICENCE
+## Licence
 
 - MIT
 
