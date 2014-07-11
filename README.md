@@ -67,6 +67,10 @@ Make sure the approriate tables are created in sql server and then test it like 
 ```
 $ echo '{"msg":"here comes the sun"}' | fluent-cat insert.into.mssql2.test
 ```
+```
+$ for i in `seq 2000 2100`; do echo "{\"msg\":\"here comes the sun, part $i\"}" | fluent-cat insert.into.mssql2.test; done
+
+```
 
 If everything goes well, you should see your JSON data in your table as a row
 

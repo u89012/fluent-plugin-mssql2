@@ -1,5 +1,7 @@
-# require 'pp'
-# require 'logger'
+require 'sequel'
+require 'json'
+require 'pp'
+require 'logger'
 
 class Mssql2Output < Fluent::BufferedOutput
   Fluent::Plugin.register_output('mssql2', self)
@@ -15,9 +17,6 @@ class Mssql2Output < Fluent::BufferedOutput
 
   def configure(conf)
     super
-    require 'sequel'
-    require 'json'
-
     @format_proc = Proc.new{|tag, time, record| record.to_json}
   end
 
@@ -28,7 +27,7 @@ class Mssql2Output < Fluent::BufferedOutput
   def client
     begin
       db = Sequel.tinytds(username: @username, password: @password, host: @host, database: @database)
-      # db.loggers << Logger.new($stdout)
+      db.loggers << Logger.new($stdout)
     rescue
       raise Fluent::ConfigError, "Cannot open database, check user or password"
     end  
@@ -43,9 +42,9 @@ class Mssql2Output < Fluent::BufferedOutput
       a << JSON.parse(data)
     }
 
-    # pp a
+    pp a
     begin
-      c[@table.to_sym].multi_insert(a)    
+      c[@table.gsub('.', '__').to_sym].multi_insert(a)    
     ensure
       c.disconnect
     end
