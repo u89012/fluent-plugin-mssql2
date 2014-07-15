@@ -27,7 +27,7 @@ class Mssql2Output < Fluent::BufferedOutput
   def client
     begin
       db = Sequel.tinytds(username: @username, password: @password, host: @host, database: @database)
-      # db.loggers << Logger.new($stdout)
+      # db.loggers << Logger.new($stdout)   
     rescue
       raise Fluent::ConfigError, "Cannot open database, check user or password"
     end  

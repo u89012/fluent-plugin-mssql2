@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        	= 'fluent-plugin-mssql2'
-  s.version     	= '0.0.7'
+  s.version     	= '0.0.8'
   s.date        	= '2014-07-10'
   s.summary     	= 'A no frills fluentd buffered plugin to write to microsoft sql server'
   s.description    	= 'A no frills fluentd buffered plugin to write to microsoft sql server'
